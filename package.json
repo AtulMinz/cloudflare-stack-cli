@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-stack-app",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "type": "module",
   "main": "cli.js",
   "scripts": {
