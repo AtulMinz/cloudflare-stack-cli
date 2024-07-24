@@ -16,7 +16,6 @@
   "dependencies": {
     "@inquirer/prompts": "^5.3.2",
     "chalk": "^5.3.0",
-    "cli-spinners": "^3.1.0",
     "commander": "^12.1.0",
     "execa": "^9.3.0",
     "ora": "^8.0.1"

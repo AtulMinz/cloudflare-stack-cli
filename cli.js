@@ -78,33 +78,33 @@ const isYarnInstalled = () => {
         let startCommand = ' '
 
         if (isBunInstalled()) {
-            spinner.text = 'Installing dependencies'
-            await execaCommand('bun install').pipeStdout(process.stdout)
+            spinner.text = 'Installing dependencies '
+            await execaCommand('bun install', {stdout: 'inherit'})
             spinner.text = ' '
             startCommand = 'bun dev'
             console.log("\n")
         }
 
         else if (isYarnInstalled()) {
-            await execaCommand('yarn').pipeStdout(process.stdout)
+            await execaCommand('yarn', {stdio: 'inherit'})
             startCommand = 'yarn dev'
         }
 
         else {
             spinner.text = 'Installing dependencies'
-            await execa('npm', ['install', '--verbose']).pipeStdout(process.stdout)
+            await execa('npm', ['install', '--verbose'], {stdio: 'inherit'})
             spinner.text = ''
             startCommand = 'npm run dev'
         }
 
         spinner.stop()
         console.log(`${green.bold('Success!')} Created ${appName} at ${process.cwd()} \n`)
-        console.log(`To get started, change into the new directory and  run ${chalk.bgCyan(startCommand)}`)
+        console.log(`To get started, change into the new directory and  run ${chalk.blueBright(startCommand)}`)
     }
     catch(err) {
         console.log("\n")
         if (err) {
-         console.log("Directory exists :)");
+         console.log("Error Occurred :(");
          console.error(err)
         }
         spinner.stop()
